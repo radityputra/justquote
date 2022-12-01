@@ -1,8 +1,10 @@
-package com.si5b.justquote;
+package com.si5b.justquote.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.si5b.justquote.R;
 
 public class MainActivity extends AppCompatActivity {
 
