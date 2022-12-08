@@ -1,14 +1,47 @@
 package com.si5b.justquote.Adapter;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.si5b.justquote.Model.QuoteModel;
 import com.si5b.justquote.R;
 
-public class AdapterQuote {
+import java.util.ArrayList;
+import java.util.List;
+
+public class AdapterQuote extends RecyclerView.Adapter<AdapterQuote.ViewHolder>{
+   private List<QuoteModel> ListQuote = new ArrayList<>();
+   private Context ctx;
+
+   public AdapterQuote(List<QuoteModel> listQuote, Context ctx) {
+      this.ListQuote = listQuote;
+      this.ctx = ctx;
+   }
+
+   @NonNull
+   @Override
+   public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+      View V = LayoutInflater.from(ctx).inflate(R.layout.item_quote, parent, false);
+      return new ViewHolder(V);
+   }
+
+   @Override
+   public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+      QuoteModel QM = ListQuote.get(position);
+      holder.tvText.setText(QM.getText());
+      holder.tvAuthor.setText(QM.getAuthor());
+   }
+
+   @Override
+   public int getItemCount() {
+      return ListQuote.size();
+   }
 
    public class ViewHolder extends RecyclerView.ViewHolder {
       TextView tvText, tvAuthor;
