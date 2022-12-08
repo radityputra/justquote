@@ -7,7 +7,7 @@ public class RetroServer {
     private static final String baseURL = "https://type.fit/api/quotes";
     private static Retrofit retro;
 
-    public static Retrofit conncetRetrofit(){
+    public static Retrofit connectRetrofit(){
         if(retro == null){
             retro = new Retrofit.Builder()
                     .baseUrl(baseURL)
